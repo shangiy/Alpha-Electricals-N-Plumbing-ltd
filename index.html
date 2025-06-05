@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Electricals & Plumbing Ltd</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <svg style="display: none;">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00b4db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0083b0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Carousel Styles */
+    .categories-carousel {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .carousel-container {
+  width: 60vw; /* 70% of the viewport width */
+  margin: 0% auto; /* center it */
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+position: relative;
+  padding: 0 5vw; /* creates whitespace on left and right */
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  min-width: max-content;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 270px;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+    .carousel-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .carousel-item h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    
+
+    @media (max-width: 768px) {
+      .carousel-item { flex: 0 0 50%; }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-item { flex: 0 0 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <!-- Logo Left -->
+    <div class="logo"><a href="index.html"><img src="images/logo Alpha.png" alt="Hardware Store Logo" id="logo-img"></a> </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Products</a>
+
+        <div class="dropdown-content">
+          <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+          <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+          <a href="lighting.html"><img src="images/decor lighting design.png" alt=""> Lighting & Electrical</a>
+          <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+          <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="icon" id="searchIcon">&#128269;</span>
+      <div class="search-box-container" id="searchBoxContainer">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <span class="search-submit-icon" id="submitSearch">&#10148;</span>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-search-wrapper">
+        <span class="icon" id="searchIconMobile">&#128269;</span>
+        <div class="search-box-container" id="mobileSearchBoxContainer">
+          <input type="text" id="mobileSearchInput" placeholder="Search...">
+          <span class="search-submit-icon" id="mobileSubmitSearch">&#10148;</span>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="menu-toggle" id="menuToggle">&#9776;</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">home</a>
+      <a href="tanks.html"><img src="" alt=""> Tanks Collection</a>
+      <a href="plumbing.html"><img src="" alt=""> Plumbing Equipment</a>
+      <a href="lighting.html"><img src="" alt=""> Lighting & Electrical</a>
+      <a href="decor.html"><img src=""alt=""> Home & Décor</a>
+      <a href="roofing.html"><img src=""alt=""> Roofing & Construction</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+    </div>
+
+    <!-- Cart Panel -->
+   <div id="cart-panel" class="cart-panel">
+     <div class="cart-header">
+       <h2>Your Cart</h2>
+        <span id="close-cart" class="close-cart-btn">&times;</span>
+     </div>
+     <div id="cart-items" class="cart-items"></div>
+     <div class="cart-footer">
+      <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
+     </div>
+
+    </div>
+  </header>
+
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-message">
+      <h1>Welcome to Alpha Electricals & Plumbing Ltd</h1>
+      <p>Your trusted source for Tanks, Lighting, Plumbing & More</p>
+    </div>
+  </section>
+  
+
+ <!-- Categories Carousel Section -->
+<section class="categories-carousel">
+  <div class="container">
+    <h2>Browse by Category</h2>
+
+    <div class="carousel-container">
+      <div class="carousel-track">
+
+        <!-- Carousel Items -->
+         <div class="carousel-item">
+         <a href="lighting.html">
+            <img src="images/aesthetic Light.png"alt="Lighting & Electrical">
+            <h3>Lighting & Electrical</h3>
+          </a>
+        </div>
+        
+
+        <div class="carousel-item">
+          <a href="plumbing.html">
+            <img src="images/ppr joints.png" alt="Plumbing Equipment">
+            <h3>Plumbing Equipment</h3>
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="tanks.html">
+            <img src="images/kentank 2000l.png" alt="Tanks">
+            <h3>Tanks</h3>
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="decor.html">
+            <img src="images/birds lights.png" alt="Home & Decor">
+            <h3>Home & Decor</h3>
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="roofing.html">
+            <img src="images/roof 2.png" alt="Roofing & Fencing">
+            <h3>Roofing & Fencing</h3>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="lighting.html">
+            <img src="images/Electric cable per roll.jpg"alt="Lighting & Electrical">
+            <h3>Lighting & Electrical</h3>
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="decor.html">
+            <img src="images/crystall chanderlier.png" alt="Home & Decor">
+            <h3>Home & Decor</h3>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="roofing.html">
+            <img src="images/roof 3.png" alt="Roofing & Fencing">
+            <h3>Roofing & Fencing</h3>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="decor.html">
+            <img src="images/MDF & chipboard.png" alt="Home & Decor">
+            <h3>Home & Decor</h3>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="lighting.html">
+            <img src="images/classic chandelier.png"alt="Lighting & Electrical">
+            <h3>Lighting & Electrical</h3>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Featured Products -->  
+<section class="fullwidth-container featured-products"> 
+  <div class="container"><h2>Featured Products</h2></div>
+  <div class="products-grid">
+
+    <div class="product-item" id="product-ample-light">
+      <img src="images/ample Light.png" alt="Ample Light">
+      <h3>Ample Light</h3>
+      <p class="price">Ksh 2,500.00</p>
+      <button onclick="addToCart('Ample Light', 2500)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-oval toilet">
+      <img src="images/oval toilet.jpg" alt="oval toilet">
+      <h3>Oval Toilet</h3>
+      <p class="price">Ksh 7,500.00</p>
+      <button onclick="addToCart('oval toilet', 7500)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-Double sink with tap">
+      <img src="images/Double sink with tap.jpg" alt="Double sink with tap">
+      <h3>Double sink with tap</h3>
+      <p class="price">Ksh 11,000.00</p>
+      <button onclick="addToCart('Double sink with tap', 11000)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-solar-heater non-pressurelized">
+      <img src="images/solar heater.png" alt="Solar Heater non-pressurelized">
+      <h3>Solar Heater non-pressurelized</h3>
+      <p class="price">Ksh 12,000.00</p>
+      <button onclick="addToCart('Solar Heater non-pressurelized', 12000)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-artistic-lights">
+      <img src="images/exquisite chandelier.jpg" alt="Artistic Lights">
+      <h3>Artistic Lights</h3>
+      <p class="price">Ksh 3,300.00</p>
+      <button onclick="addToCart('Artistic Lights', 3300)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-Electric cable">
+      <img src="images/Electric cable per roll.jpg" alt="Electric cable">
+      <h3>Electric cable</h3>
+      <p class="price per roll">Ksh 3,000.00</p>
+      <button onclick="addToCart('Electric cable', 3000)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-WarmLight wall bracket">
+      <img src="images/WarmLight wall bracket.jpg" alt="Decor Lighting">
+      <h3>WarmLight wall bracket</h3>
+      <p class="price">Ksh 1,900.00</p>
+      <button onclick="addToCart('WarmLight wall bracket', 1900)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-ppr-pipe-fittings">
+      <img src="images/ppr pipe fittings.png" alt="PPR Fittings">
+      <h3>PPR Pipe Fittings</h3>
+      <p class="price">Ksh 30.00</p>
+      <button onclick="addToCart('PPR Pipe Fittings', 30)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-ppr-pipes">
+      <img src="images/ppr pipes.png" alt="PPR Pipes">
+      <h3>PPR Pipes</h3>
+      <p class="price">Ksh 200.00</p>
+      <button onclick="addToCart('PPR Pipes', 200)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-switches-sockets">
+      <img src="images/versatile switches & Sockets.png" alt="Switches & Sockets">
+      <h3>Switches & Sockets</h3>
+      <p class="price">Ksh 250.00</p>
+      <button onclick="addToCart('Switches & Sockets', 250)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-Frencia dual inlet wall tap">
+      <img src="images/Frencia dual inlet wall tap.jpg" alt="Frencia dual inlet wall tap">
+      <h3>Frencia dual inlet wall tap</h3>
+      <p class="price">Ksh 1,800.00</p>
+      <button onclick="addToCart('Frencia dual inlet wall tap', 1800)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-Decor Mirrors">
+      <img src="images/Stylish mirror.jpg" alt="Stylish mirror">
+      <h3>Stylish mirror</h3>
+      <p class="price">Ksh 1,500.00</p>
+      <button onclick="addToCart('Stylish mirror', 1500)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-mdf-chipboard">
+      <img src="images/MDF & chipboard.png" alt="MDF & Chipboard">
+      <h3>MDF & Chipboard</h3>
+      <p class="price">Ksh 5,400.00</p>
+      <button onclick="addToCart('MDF & Chipboard', 5400)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-kitchen-sink">
+      <img src="images/kitchen taps.png" alt="Kitchen Sink">
+      <h3>Kitchen Sink</h3>
+      <p class="price">Ksh 1,000.00</p>
+      <button onclick="addToCart('Kitchen Sink', 1000)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-soap-dish">
+      <img src="images/Whole complete sink n' cabinet.jpg" alt="Whole complete sink n' cabinet">
+      <h3>Whole complete sink n' cabinet</h3>
+      <p class="price">Ksh 7,000.00</p>
+      <button onclick="addToCart('Whole complete sink n cabinet', 7000)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-Wall lights">
+      <img src="images/Wall lights.jpg" alt="Wall lights">
+      <h3>Wall lights</h3>
+      <p class="price">Ksh 2,000.00</p>
+      <button onclick="addToCart('Wall lights', 2000)">Add to Cart</button>
+    </div>
+
+    <div class="product-item" id="product-artistic-lights-2">
+      <img src="images/exquisite chandelier.jpg" alt="Artistic Lights">
+      <h3>Artistic Lights</h3>
+      <p class="price">Ksh 3,300.00</p>
+      <button onclick="addToCart('Artistic Lights', 3300)">Add to Cart</button>
+    </div>
+     <div class="product-item" id="product-Bathroom makeOver Sink">
+      <img src="images/Bathroom makeOver Sink.png" alt="Bathroom makeOver Sink">
+      <h3>Bathroom makeOver Sink</h3>
+      <p class="price">Ksh 7,500.00</p>
+      <button onclick="addToCart('Bathroom makeOver Sink', 7500)">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Services Section with Parallax -->
+<section class="parallax services-section">
+  <div class="container service-layout">
+    
+    <!-- LEFT SIDE TEXT -->
+    <div class="service-text">
+      <h2 class="section-title">We Also Offer Delivery Services</h2>
+      <p class="align-left">
+        We offer fast and reliable delivery services for all our products across the region.
+        we have free delivery for orders above Ksh 5,000 within Eldoret and its environs.
+      </p>
+      <p class="align-left">
+        Whether you're ordering electrical fittings, plumbing supplies, lighting solutions, or home décor items,
+        Alpha Electricals & Plumbing Ltd ensures your purchases are delivered safely and on time.
+      </p>
+      <p class="align-left">
+        Our goal is to make your shopping experience convenient and hassle-free.
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE: KEEP YOUR CIRCLES AS IS -->
+    <div class="trend-circles">
+      <div class="stats-container">
+        <!-- Circle 1 -->
+        <div class="circle-container" style="top: 70%; left: 60%;" data-percent="90">
+          <svg class="progress-ring" width="120" height="120">
+            <circle class="progress-ring__bg" r="54" cx="60" cy="60" />
+            <circle class="progress-ring__circle" r="54" cx="60" cy="60" />
+          </svg>
+          <div class="circle-number">90%</div>
+          <div class="circle-label">Good User Experience</div>
+        </div>
+
+        <!-- Circle 2 -->
+        <div class="circle-container" style="top: 30%; left: 15%;" data-percent="99">
+          <svg class="progress-ring" width="120" height="120">
+            <circle class="progress-ring__bg" r="54" cx="60" cy="60" />
+            <circle class="progress-ring__circle" r="54" cx="60" cy="60" />
+          </svg>
+          <div class="circle-number">99%</div>
+          <div class="circle-label">Satisfactory Service Delivery</div>
+        </div>
+
+        <!-- Circle 3 -->
+        <div class="circle-container" style="top: 10%; left: 80%;" data-percent="27">
+          <svg class="progress-ring" width="120" height="120">
+            <circle class="progress-ring__bg" r="54" cx="60" cy="60" />
+            <circle class="progress-ring__circle" r="54" cx="60" cy="60" />
+          </svg>
+          <div class="circle-number">7%</div>
+          <div class="circle-label">Returned Goods</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="connect-section">
+  <div class="connect-overlay">
+    <h2 class="animate-text">Connect with us!</h2>
+    <p class="animate-text">As You Enquire or make purchases</p>
+
+    <!-- TikTok video previews -->
+    <div class="tiktok-videos-container">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@alphaelectricalsandplumb/video/7506475821771640070"
+        data-video-id="7506475821771640070"
+        style="max-width: 325px; min-width: 200px;">
+        <section>Loading video...</section>
+      </blockquote>
+
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@alphaelectricalsandplumb/video/7496094826002222342"
+        data-video-id="7496094826002222342"
+        style="max-width: 325px; min-width: 200px;">
+        <section>Loading video...</section>
+      </blockquote>
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" class="btn tiktok-btn animate-btn">
+        FOLLOW US ON TIKTOK →
+      </a>
+      <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" class="btn facebook-btn animate-btn">
+        LIKE US ON FACEBOOK →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TikTok embed script -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+
+
+
+  <!-- About Us -->
+  <section class="about-us">
+    <h2>About Us</h2>
+    <p> </p>
+
+    <p>Alpha Electricals & Plumbing Ltd is committed to providing quality tanks, plumbing equipment, lighting, décor, and construction products across the region.</p>
+     <p> </p>
+  </section>
+
+<section class="impact-section">
+  <div class="impact-overlay">
+    <h2 class="impact-title">Our Impact</h2>
+    <p class="impact-subtitle">Become part of our movement</p>
+    <div class="impact-stats">
+      <div class="impact-box">
+        <i class="icon"><i class="fab fa-tiktok"></i> <!-- Requires Font Awesome --></i>
+        <h3>22,500</h3>
+        <p>Daily Average Reach</p>
+      </div>
+      <div class="impact-box">
+        <i class="icon">💰</i>
+        <h3>22,865</h3>
+        <p>Subscribers</p>
+      </div>
+      <div class="impact-box">
+        <i class="icon">😎</i>
+        <h3>28,255</h3>
+        <p>Benefitted Customers</p>
+      </div>
+      <div class="impact-box">
+        <i class="icon">🏆</i>
+        <h3>Coming Soon</h3>
+        <p>Awards</p>
+      </div>
+    </div>
+    <p class="impact-description">
+      Alpha Electricals & Plumbing Ltd is an online and physical hub dedicated to providing high-quality electrical, plumbing, lighting, and home improvement solutions across Kenya. Our platform serves as a resourceful destination for homeowners, contractors, and businesses seeking expert advice, innovative products, and reliable services in the construction and utility sectors. We offer a wide range of guides and insights on efficient product use, energy-saving techniques, and modern plumbing solutions. Through strategic partnerships with certified electricians, plumbers, and technical consultants, we’ve enhanced our ability to serve diverse customer needs across the country. This commitment has earned us recognition in the industry, including features in local and international media outlets and commendations for our excellence in service delivery.
+    </p>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="lighting.html">Lighting</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us: +254 117 484 887</p>
+      <p>Email: Alphaltd21@gmail.com
+    <div class="footer-hours">
+      <p>Open Days: Mon - Sat</p>
+
+      <p>Hours: 8:00 AM - 6:00 PM</p>
+    </div>
+  </div>
+  <div class="social-media">
+    <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+    <a href="https://www.facebook.com/AlphaElectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-instagram "></i> </a>
+    <a href="https://www.youtube.com/shorts/" target="_blank" aria-label="YouTube Shorts"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+    <a href="https://wa.me/254117484887" target="_blank" aria-label="WhatsApp"> <i class="fab fa-whatsapp"></i> </a>
+  
+  </div>
+    <p class="footer-text">Alpha Electricals & Plumbing Ltd © 2025</p>
+  </footer>
+<!-- Checkout Modal Overlay -->
+<div id="checkoutOverlay" class="checkout-overlay">
+  <iframe src="checkout.html" frameborder="0" id="checkoutIframe"></iframe>
+  <button id="closeCheckout" class="close-checkout">×</button>
+</div>
+
+<!-- Scroll Progress Button -->
+<div id="scrollToTop" class="scroll-progress">
+  <svg class="progressing-ring" width="60" height="60">
+    <circle class="progressing-ring__circle" stroke="#00c389" stroke-width="4" fill="transparent" r="26" cx="30" cy="30" />
+  </svg>
+  <span class="scroll-arrow">↑</span>
+</div>
+<!-- WhatsApp Chat Button -->
+<div id="whatsapp-chat-button">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat with us" />
+</div>
+
+<!-- WhatsApp Chat Popup -->
+<div id="whatsapp-popup">
+  <div class="chat-header">
+    <span>Chat with us on WhatsApp</span>
+    <button id="close-whatsapp">×</button>
+  </div>
+  <div class="chat-body">
+    <input id="waMessage" type="text" placeholder="Type your message..." />
+    <button id="sendToWhatsapp">Send</button>
+  </div>
+</div>
+<script>
+  const scrollBtn = document.getElementById('scrollToTop');
+  const progressingCircle = document.querySelector('.progressing-ring__circle');
+  const radius = progressingCircle.r.baseVal.value;
+  const circumference = 2 * Math.PI * radius;
+
+  progressingCircle.style.strokeDasharray = `${circumference}`;
+  progressingCircle.style.strokeDashoffset = `${circumference}`;
+
+  function setProgress(percent) {
+    const offset = circumference - percent / 100 * circumference;
+    progressingCircle.style.strokeDashoffset = offset;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    setProgress(scrollPercent);
+
+     if (scrollTop > 200) {
+  scrollBtn.classList.add('show');
+} else {
+  scrollBtn.classList.remove('show');
+}
+  }
+
+  window.addEventListener('scroll', updateProgress);
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial state
+  updateProgress();
+  // WhatsApp Chat
+  const waBtn = document.getElementById('whatsapp-chat-button');
+  const waPopup = document.getElementById('whatsapp-popup');
+  const waClose = document.getElementById('close-whatsapp');
+  const waSend = document.getElementById('sendToWhatsapp');
+
+  waBtn.addEventListener('click', () => {
+    waPopup.style.display = 'block';
+  });
+
+  waClose.addEventListener('click', () => {
+    waPopup.style.display = 'none';
+  });
+
+  waSend.addEventListener('click', () => {
+    const msg = document.getElementById('waMessage').value.trim();
+    if (msg) {
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/254117484887?text=${encodedMsg}`, '_blank');
+    }
+  });
+</script>
+<script>
+  const tiktokVideos = document.querySelectorAll('.tiktok-video');
+
+  tiktokVideos.forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const progressRings = document.querySelectorAll('.progress');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const progressEl = entry.target;
+      const bar = progressEl.querySelector('.bar');
+      const percent = parseInt(progressEl.getAttribute('data-progress'), 10);
+      const radius = bar.r.baseVal.value;
+      const circumference = 2 * Math.PI * radius;
+
+      if (entry.isIntersecting) {
+        // Animate
+        const offset = circumference - (percent / 100) * circumference;
+        bar.style.strokeDashoffset = offset;
+      } else {
+        // Reset
+        bar.style.strokeDashoffset = circumference;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progressRings.forEach(ring => {
+    const bar = ring.querySelector('.bar');
+    const radius = bar.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    bar.style.strokeDasharray = circumference;
+    bar.style.strokeDashoffset = circumference;
+
+    observer.observe(ring);
+  });
+});
+</script>
+
+<script>
+  window.addEventListener("message", function (event) {
+    if (event.data === "closeCheckout") {
+      document.getElementById("checkoutOverlay").style.display = "none";
+      location.reload(); // Reload to update cart
+    }
+  });
+</script>
+
+
+<script src="script.js" defer></script>
+</body>
+</html>

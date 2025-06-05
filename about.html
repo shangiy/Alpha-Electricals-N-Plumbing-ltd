@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Electricals & Plumbing Ltd</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <!-- Logo Left -->
+    <div class="logo"><a href="index.html"><img src="images/logo Alpha.png" alt="Hardware Store Logo" id="logo-img"></a> </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Products</a>
+
+        <div class="dropdown-content">
+          <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+          <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+          <a href="lighting.html"><img src="images/decor lighting design.png" alt=""> Lighting & Electrical</a>
+          <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+          <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="icon" id="searchIcon">&#128269;</span>
+      <div class="search-box-container" id="searchBoxContainer">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <span class="search-submit-icon" id="submitSearch">&#10148;</span>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-search-wrapper">
+        <span class="icon" id="searchIconMobile">&#128269;</span>
+        <div class="search-box-container" id="mobileSearchBoxContainer">
+          <input type="text" id="mobileSearchInput" placeholder="Search...">
+          <span class="search-submit-icon" id="mobileSubmitSearch">&#10148;</span>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="menu-toggle" id="menuToggle">&#9776;</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">home</a>
+      <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+      <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+      <a href="lighting.html"><img src="images/artistic lights.png" alt=""> Lighting & Electrical</a>
+      <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+      <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+    </div>
+
+    <!-- Cart Panel -->
+   <div id="cart-panel" class="cart-panel">
+     <div class="cart-header">
+       <h2>Your Cart</h2>
+        <span id="close-cart" class="close-cart-btn">&times;</span>
+     </div>
+     <div id="cart-items" class="cart-items"></div>
+     <div class="cart-footer">
+      <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
+     </div>
+    </div>
+  </header>
+
+  <section class="about-hero">
+    <div class="about-overlay">
+      <div class="about-content">
+        <h1>Innovating Everyday Living</h1>
+        <p>Welcome to Alpha Electricals & Plumbing Ltd — where technology meets functionality to power your home and office's   needs with excellence.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="about-main">
+    <div class="about-image">
+      <img src="images/team.jpg" alt="Alpha Team Working">
+    </div>
+    <div class="about-text">
+      <h2>About Alpha Electricals & Plumbing Ltd</h2>
+      <p>Founded with a vision to revolutionize home utility services, Alpha Electricals & Plumbing Ltd combines innovation with practical solutions in the fields of lighting, plumbing, décor, and construction essentials. Our commitment to quality and sustainability drives everything we do — from sourcing top-tier products to offering expert consultation and support.</p>
+    </div>
+  </section>
+  
+  <section class="about-features">
+    <h2>Why Choose Us?</h2>
+    <div class="features-grid">
+      <div class="feature-box">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Smart Lighting</h3>
+        <p>We offer modern LED and artistic lighting that enhances beauty and cuts energy costs.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-tools"></i>
+        <h3>Reliable Plumbing</h3>
+        <p>From PPR to HDPE systems, our plumbing solutions are engineered for durability and performance.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-home"></i>
+        <h3>Home & Décor</h3>
+        <p>Decorate your space with premium, modern designs tailored to your lifestyle.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-warehouse"></i>
+        <h3>Bulk Supplies</h3>
+        <p>We cater to homeowners, builders, and institutions with wholesale packages and fast delivery.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="about-vision">
+    <div class="vision-text">
+      <h2>Our Mission</h2>
+      <p>To empower households and industries through reliable, innovative, and affordable electrical, plumbing, and décor solutions that improve daily life.</p>
+      <h2>Our Vision</h2>
+      <p>To be East Africa’s most trusted partner in smart home infrastructure and construction support.</p>
+    </div>
+    <div class="vision-image">
+      <img src="images/delivery teamVan.jpg"alt="Smart Vision">
+    </div>
+  </section>
+  
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="lighting.html">Lighting</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us: +254 117 484 887</p>
+      <p>Email: Alphaltd21@gmail.com
+    <div class="footer-hours">
+      <p>Open Days: Mon - Sat</p>
+
+      <p>Hours: 8:00 AM - 6:00 PM</p>
+    </div>
+  </div>
+  <div class="social-media">
+    <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+    <a href="https://www.facebook.com/AlphaElectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-instagram "></i> </a>
+    <a href="https://www.youtube.com/shorts/" target="_blank" aria-label="YouTube Shorts"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+    
+  </div>
+    <p class="footer-text">Alpha Electricals & Plumbing Ltd © 2025</p>
+  </footer>
+
+
+  
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Electricals & Plumbing Ltd</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Featured Products Section */
+    .featured-products {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+   .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      gap: 20px;
+      padding: 0 160px;
+    }
+
+    .product-item {
+      background: #f4f4f4;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-item h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .product-item .price {
+      margin: 10px 0;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .product-item button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product-item button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <!-- Logo Left -->
+    <div class="logo"><a href="index.html"><img src="images/logo Alpha.png" alt="Hardware Store Logo" id="logo-img"></a> </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Products</a>
+
+        <div class="dropdown-content">
+          <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+          <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+          <a href="lighting.html"><img src="images/decor lighting design.png" alt=""> Lighting & Electrical</a>
+          <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+          <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="icon" id="searchIcon">&#128269;</span>
+      <div class="search-box-container" id="searchBoxContainer">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <span class="search-submit-icon" id="submitSearch">&#10148;</span>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-search-wrapper">
+        <span class="icon" id="searchIconMobile">&#128269;</span>
+        <div class="search-box-container" id="mobileSearchBoxContainer">
+          <input type="text" id="mobileSearchInput" placeholder="Search...">
+          <span class="search-submit-icon" id="mobileSubmitSearch">&#10148;</span>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="menu-toggle" id="menuToggle">&#9776;</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">home</a>
+      <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+      <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+      <a href="lighting.html"><img src="images/artistic lights.png" alt=""> Lighting & Electrical</a>
+      <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+      <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+    </div>
+
+    <!-- Cart Panel -->
+   <div id="cart-panel" class="cart-panel">
+     <div class="cart-header">
+       <h2>Your Cart</h2>
+        <span id="close-cart" class="close-cart-btn">&times;</span>
+     </div>
+     <div id="cart-items" class="cart-items"></div>
+     <div class="cart-footer">
+      <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
+     </div>
+    </div>
+  </header>
+
+
+<!-- Featured Products Section for Roofing -->
+<section class="featured-products">
+    <div class="container">
+      <h2>Roofing & Fencing Collection</h2>
+      <div class="products-grid">
+        <!-- Product Item 1 -->
+        <div class="product-item">
+          <img src="images/stylish granites.png" alt="Stylish Granites">
+          <h3>Stylish Granites</h3>
+          <p class="price">Ksh 1,500.00 per square meter</p>
+          <button onclick="addToCart('Stylish Granites', 1500)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 2 -->
+        <div class="product-item">
+          <img src="images/green fencing.png" alt="Easy Installation Fence">
+          <h3>Easy Installation Fence</h3>
+          <p class="price">Ksh 4,500.00 per roll</p>
+          <button onclick="addToCart('Easy Installation Fence', 4500)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 3 -->
+        <div class="product-item">
+          <img src="images/manhole covers.png" alt="Manhole Covers">
+          <h3>Manhole Covers</h3>
+          <p class="price">Ksh 2,500.00 per roll</p>
+          <button onclick="addToCart('Manhole Covers', 2500)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 4 -->
+        <div class="product-item">
+          <img src="images/rainwater gutters.png" alt="Gutter Systems">
+          <h3>Gutter Systems</h3>
+          <p class="price">Ksh 1,800.00</p>
+          <button onclick="addToCart('Gutter Systems', 1800)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 5 -->
+        <div class="product-item">
+          <img src="images/MDF & chipboard.png" alt="MDF & Chipboard">
+          <h3>MDF & Chipboard</h3>
+          <p class="price">Ksh 1,200.00 per square meter</p>
+          <button onclick="addToCart('MDF & Chipboard', 1200)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 6 -->
+        <div class="product-item">
+          <img src="images/dynamic sink.png" alt="Dynamic Sink">
+          <h3>Dynamic Sink</h3>
+          <p class="price">Ksh 3,200.00</p>
+          <button onclick="addToCart('Dynamic Sink', 3200)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 7 -->
+        <div class="product-item">
+          <img src="images/durable countertops.png" alt="Durable Countertops">
+          <h3>Durable Countertops</h3>
+          <p class="price">Ksh 2,000.00 per square meter</p>
+          <button onclick="addToCart('Durable Countertops', 2000)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 8 -->
+        <div class="product-item">
+          <img src="images/solar heater.png" alt="Solar Heater">
+          <h3>Solar Heater</h3>
+          <p class="price">Ksh 15,000.00</p>
+          <button onclick="addToCart('Solar Heater', 15000)">Add to Cart</button>
+        </div>
+        <!-- Product Item 9 -->
+         <div class="product-item">
+          <img src="images/yale door locks  4L-22934-LS.png" alt="yale door locks  4L-22934">
+          <h3>yale door locks  4L-22934</h3>
+          <p class="price">Ksh 9095</p>
+          <button onclick="addToCart('yale door locks  4L-22934', 9095)">Add to Cart</button>
+        </div>
+        <!-- Product Item 10 -->
+         <div class="product-item">
+          <img src="images/4L-22934-LS union.png" alt="4L-22934-LS union locks">
+          <h3>4L-22934-LS union locks</h3>
+          <p class="price">Ksh 9095</p>
+          <button onclick="addToCart('4L-22934-LS union locks', 9095)">Add to Cart</button>
+        </div>
+        <!-- Product Item 11 -->
+         <div class="product-item">
+          <img src="images/roofing nails.png" alt="Roofing Nails">
+          <h3>Roofing Nails</h3>
+          <p class="price">Ksh 1,500.00 per box</p>
+          <button onclick="addToCart('Roofing Nails', 1500)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="lighting.html">Lighting</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us: +254 117 484 887</p>
+      <p>Email: Alphaltd21@gmail.com
+    <div class="footer-hours">
+      <p>Open Days: Mon - Sat</p>
+
+      <p>Hours: 8:00 AM - 6:00 PM</p>
+    </div>
+  </div>
+  <div class="social-media">
+    <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+    <a href="https://www.facebook.com/AlphaElectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-instagram "></i> </a>
+    <a href="https://www.youtube.com/shorts/" target="_blank" aria-label="YouTube Shorts"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+    
+  </div>
+    <p class="footer-text">Alpha Electricals & Plumbing Ltd © 2025</p>
+  </footer>
+
+<!-- Scroll Progress Button -->
+<div id="scrollToTop" class="scroll-progress">
+  <svg class="progress-ring" width="60" height="60">
+    <circle class="progress-ring__circle" stroke="#00c389" stroke-width="4" fill="transparent" r="26" cx="30" cy="30" />
+  </svg>
+  <span class="scroll-arrow">↑</span>
+</div>
+<!-- WhatsApp Chat Button -->
+<div id="whatsapp-chat-button">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat with us" />
+</div>
+
+<!-- WhatsApp Chat Popup -->
+<div id="whatsapp-popup">
+  <div class="chat-header">
+    <span>Chat with us on WhatsApp</span>
+    <button id="close-whatsapp">×</button>
+  </div>
+  <div class="chat-body">
+    <input id="waMessage" type="text" placeholder="Type your message..." />
+    <button id="sendToWhatsapp">Send</button>
+  </div>
+</div>
+<script>
+  const scrollBtn = document.getElementById('scrollToTop');
+  const progressCircle = document.querySelector('.progress-ring__circle');
+  const radius = progressCircle.r.baseVal.value;
+  const circumference = 2 * Math.PI * radius;
+
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  progressCircle.style.strokeDashoffset = `${circumference}`;
+
+  function setProgress(percent) {
+    const offset = circumference - percent / 100 * circumference;
+    progressCircle.style.strokeDashoffset = offset;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    setProgress(scrollPercent);
+
+    scrollBtn.style.opacity = scrollTop > 200 ? '1' : '0';
+  }
+
+  window.addEventListener('scroll', updateProgress);
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial state
+  updateProgress();
+  // WhatsApp Chat
+  const waBtn = document.getElementById('whatsapp-chat-button');
+  const waPopup = document.getElementById('whatsapp-popup');
+  const waClose = document.getElementById('close-whatsapp');
+  const waSend = document.getElementById('sendToWhatsapp');
+
+  waBtn.addEventListener('click', () => {
+    waPopup.style.display = 'block';
+  });
+
+  waClose.addEventListener('click', () => {
+    waPopup.style.display = 'none';
+  });
+
+  waSend.addEventListener('click', () => {
+    const msg = document.getElementById('waMessage').value.trim();
+    if (msg) {
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/254117484887?text=${encodedMsg}`, '_blank');
+    }
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Electricals & Plumbing Ltd</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .team-section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .team-member {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 15px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .team-member i.fa-user, .team-member i.fa-user-tie, .team-member i.fa-user-nurse {
+      font-size: 80px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #333;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #007bff;
+    }
+    @media (max-width: 768px) {
+      .team-member {
+        width: 100%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <!-- Logo Left -->
+    <div class="logo"><a href="index.html"><img src="images/logo Alpha.png" alt="Hardware Store Logo" id="logo-img"></a> </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Products</a>
+
+        <div class="dropdown-content">
+          <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+          <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+          <a href="lighting.html"><img src="images/decor lighting design.png" alt=""> Lighting & Electrical</a>
+          <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+          <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="icon" id="searchIcon">&#128269;</span>
+      <div class="search-box-container" id="searchBoxContainer">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <span class="search-submit-icon" id="submitSearch">&#10148;</span>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-search-wrapper">
+        <span class="icon" id="searchIconMobile">&#128269;</span>
+        <div class="search-box-container" id="mobileSearchBoxContainer">
+          <input type="text" id="mobileSearchInput" placeholder="Search...">
+          <span class="search-submit-icon" id="mobileSubmitSearch">&#10148;</span>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="menu-toggle" id="menuToggle">&#9776;</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">home</a>
+      <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+      <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+      <a href="lighting.html"><img src="images/artistic lights.png" alt=""> Lighting & Electrical</a>
+      <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+      <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+    </div>
+
+    <!-- Cart Panel -->
+   <div id="cart-panel" class="cart-panel">
+     <div class="cart-header">
+       <h2>Your Cart</h2>
+        <span id="close-cart" class="close-cart-btn">&times;</span>
+     </div>
+     <div id="cart-items" class="cart-items"></div>
+     <div class="cart-footer">
+      <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
+     </div>
+    </div>
+  </header>
+
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-message">
+      <h1>Welcome to Alpha Electricals & Plumbing Ltd</h1>
+      <p>Your trusted source for Tanks, Lighting, Plumbing & More</p>
+    </div>
+  </section>
+  
+  <section class="team-section">
+    <div class="team-bg-container">
+      <h1>Here Is Our Very Able Team</h1>
+      <p>Meet the dedicated individuals behind the thriving Alpha Electricals & Plumbing Ltd.</p>
+  
+      <div class="team-container">
+  
+        <!-- Team Member 1 -->
+        <div class="team-member">
+          <i class="fas fa-user-tie"></i>
+          <h3>Richard Kinyungu</h3>
+          <p>Sales Manager</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+            <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+          </div>
+        </div>
+  
+        <!-- Team Member 2 -->
+        <div class="team-member">
+          <i class="fas fa-user-tie"></i>
+          <h3>Peter Karanja</h3>
+          <p>Operations Head</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+            <a href="https://wa.me/254727751718" target="_blank" aria-label="WhatsApp"> <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat"> </a>
+            <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+          </div>
+        </div>
+  
+        <!-- Team Member 3 -->
+        <div class="team-member">
+          <i class="fas fa-user-nurse"></i>
+          <h3></h3>
+          <p>Customer Support</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+            <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+
+          </div>
+        </div>
+          <!-- Team Member 4 -->
+        <div class="team-member">
+          <i class="fas fa-user-"></i>
+          <h3>Val</h3>
+          <p>Social Media Manager</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+            <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+            <a href="https://wa.me/254713920922" target="_blank" aria-label="WhatsApp"> <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat"> </a>
+
+          </div>
+        </div>
+            <!-- Team Member 5 -->
+        <div class="team-member">
+          <i class="fas fa-user"></i>
+          <h3>Shangi</h3>
+          <p>Website Devoloper </p>
+          <div class="social-icons">
+            <a href="https://www.x.com/@patrickshangst1" target="_blank" aria-label="twitter"> <i class="fab fa-twitter"></i> </a>
+            <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+ 
+ <!-- Footer -->
+ <footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="lighting.html">Lighting</a>
+    <a href="tanks.html">Tanks</a>
+    <a href="team.html">Team</a>
+  </div>
+  <div class="footer-contact">
+    <p>Contact Us: +254 117 484 887</p>
+    <p>Email: Alphaltd21@gmail.com
+  <div class="footer-hours">
+    <p>Open Days: Mon - Sat</p>
+
+    <p>Hours: 8:00 AM - 6:00 PM</p>
+  </div>
+  <div class="social-media">
+    <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+    <a href="https://www.facebook.com/AlphaElectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-instagram "></i> </a>
+    <a href="https://www.youtube.com/shorts/" target="_blank" aria-label="YouTube Shorts"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+    
+  </div>
+  <p class="footer-text">Alpha Electricals & Plumbing Ltd © 2025</p>
+</footer>
+<!-- Scroll Progress Button -->
+<div id="scrollToTop" class="scroll-progress">
+  <svg class="progress-ring" width="60" height="60">
+    <circle class="progress-ring__circle" stroke="#00c389" stroke-width="4" fill="transparent" r="26" cx="30" cy="30" />
+  </svg>
+  <span class="scroll-arrow">↑</span>
+</div>
+<!-- WhatsApp Chat Button -->
+<div id="whatsapp-chat-button">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat with us" />
+</div>
+
+<!-- WhatsApp Chat Popup -->
+<div id="whatsapp-popup">
+  <div class="chat-header">
+    <span>Chat with us on WhatsApp</span>
+    <button id="close-whatsapp">×</button>
+  </div>
+  <div class="chat-body">
+    <input id="waMessage" type="text" placeholder="Type your message..." />
+    <button id="sendToWhatsapp">Send</button>
+  </div>
+</div>
+<script>
+  const scrollBtn = document.getElementById('scrollToTop');
+  const progressCircle = document.querySelector('.progress-ring__circle');
+  const radius = progressCircle.r.baseVal.value;
+  const circumference = 2 * Math.PI * radius;
+
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  progressCircle.style.strokeDashoffset = `${circumference}`;
+
+  function setProgress(percent) {
+    const offset = circumference - percent / 100 * circumference;
+    progressCircle.style.strokeDashoffset = offset;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    setProgress(scrollPercent);
+
+     if (scrollTop > 200) {
+  scrollBtn.classList.add('show');
+} else {
+  scrollBtn.classList.remove('show');
+}
+  }
+
+  window.addEventListener('scroll', updateProgress);
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial state
+  updateProgress();
+  // WhatsApp Chat
+  const waBtn = document.getElementById('whatsapp-chat-button');
+  const waPopup = document.getElementById('whatsapp-popup');
+  const waClose = document.getElementById('close-whatsapp');
+  const waSend = document.getElementById('sendToWhatsapp');
+
+  waBtn.addEventListener('click', () => {
+    waPopup.style.display = 'block';
+  });
+
+  waClose.addEventListener('click', () => {
+    waPopup.style.display = 'none';
+  });
+
+  waSend.addEventListener('click', () => {
+    const msg = document.getElementById('waMessage').value.trim();
+    if (msg) {
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/254117484887?text=${encodedMsg}`, '_blank');
+    }
+  });
+</script>
+
+</body>
+</html>

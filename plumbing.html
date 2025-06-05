@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Electricals & Plumbing Ltd</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Featured Products Section */
+    .featured-products {
+      padding: 10px 0px;
+      text-align: center;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      gap: 20px;
+      padding: 0 160px;
+    }
+
+    .product-item {
+      background: #f4f4f4;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-item h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .product-item .price {
+      margin: 10px 0;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .product-item button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product-item button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+</head>
+<body>
+
+ 
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <!-- Logo Left -->
+    <div class="logo"><a href="index.html"><img src="images/logo Alpha.png" alt="Hardware Store Logo" id="logo-img"></a> </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Products</a>
+
+        <div class="dropdown-content">
+          <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+          <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+          <a href="lighting.html"><img src="images/decor lighting design.png" alt=""> Lighting & Electrical</a>
+          <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+          <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="icon" id="searchIcon">&#128269;</span>
+      <div class="search-box-container" id="searchBoxContainer">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <span class="search-submit-icon" id="submitSearch">&#10148;</span>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-search-wrapper">
+        <span class="icon" id="searchIconMobile">&#128269;</span>
+        <div class="search-box-container" id="mobileSearchBoxContainer">
+          <input type="text" id="mobileSearchInput" placeholder="Search...">
+          <span class="search-submit-icon" id="mobileSubmitSearch">&#10148;</span>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="menu-toggle" id="menuToggle">&#9776;</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">home</a>
+      <a href="tanks.html"><img src="" alt=""> Tanks Collection</a>
+      <a href="plumbing.html"><img src="" alt=""> Plumbing Equipment</a>
+      <a href="lighting.html"><img src="" alt=""> Lighting & Electrical</a>
+      <a href="decor.html"><img src=""alt=""> Home & Décor</a>
+      <a href="roofing.html"><img src=""alt=""> Roofing & Construction</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+    </div>
+
+
+    <!-- Cart Panel -->
+   <div id="cart-panel" class="cart-panel">
+     <div class="cart-header">
+       <h2>Your Cart</h2>
+        <span id="close-cart" class="close-cart-btn">&times;</span>
+     </div>
+     <div id="cart-items" class="cart-items"></div>
+     <div class="cart-footer">
+      <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
+     </div>
+    </div>
+  </header>
+
+
+  <!-- Featured Products Section for Plumbing Equipment -->
+  <section class="featured-products">
+    <div class="container">
+      <h2>Plumbing Equipment Collection</h2>
+      <div class="products-grid">
+  
+        <!-- Product Item 1 -->
+        <div class="product-item">
+          <img src="images/ppr pipes.png" alt="Plumbing pipe's">
+          <h3>Plumbing Pipe</h3>
+          <p class="price">Ksh 2,000.00</p>
+          <button onclick="addToCart('Plumbing Pipe', 2000)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 2 -->
+       <div class="product-item">
+          <img src="images/pipe elbows.png" alt="pipe elbows">
+          <h3>PPR elbows</h3>
+          <p class="price">Ksh 100.00</p>
+          <button onclick="addToCart('PPR elbows', 100)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 3 -->
+        <div class="product-item">
+          <img src="images/Tee PPR connector.png" alt="Tee PPR connector">
+          <h3>Tee PPR connector</h3>
+          <p class="price">Ksh 50.00</p>
+          <button onclick="addToCart('Tee PPR connector', 50)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 4 -->
+        <div class="product-item">
+          <img src="images/ppr pipe fittings.png" alt="Plumbing Valve">
+          <h3>Plumbing Valve</h3>
+          <p class="price">Ksh 1,500.00</p>
+          <button onclick="addToCart('Plumbing Valve', 1500)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 5 -->
+        <div class="product-item">
+          <img src="images/100m PPR roll.png" alt="PPR pipe roll">
+          <h3>PPR pipe roll</h3>
+          <p class="price">Ksh 8,000.00</p>
+          <button onclick="addToCart('PPR pipe roll', 8000)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 6 -->
+        <div class="product-item">
+          <img src="images/HDPE 100M PIPE.jpg" alt="HDPE 100M PIPE PN6 50mm">
+          <h3>HDPE 100M PIPE PN6 50mm</h3>
+          <p class="price">Ksh 12,000.00</p>
+          <button onclick="addToCart('HDPE 100M PIPE PN6 50mm', 12000)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 7 -->
+        <div class="product-item">
+          <img src="images/PVC Waste Pipes 6 In .jpg" alt="PVC Waste Pipes 6 Inches">
+          <h3>PVC Waste Pipes 6 Inches</h3>
+          <p class="price">Ksh 3,500.00</p>
+          <button onclick="addToCart('PVC Waste Pipes 6 Inches', 3500)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 8 -->
+        <div class="product-item">
+          <img src="images/Danco Hosepipe.jpg" alt="Danco Hosepipe.jpg">
+          <h3>Danco Hosepipe.jpg</h3>
+          <p class="price">Ksh 2,000.00</p>
+          <button onclick="addToCart('Danco Hosepipe', 2000)">Add to Cart</button>
+          </div>
+        <!-- Product Item 9 -->
+         <div class="product-item">
+          <img src="images/Pillar taps.jpg" alt="Pillar Water tap">
+          <h3>Pillar Water tap</h3>
+          <p class="price">Ksh 1,500.00</p>
+          <button onclick="addToCart('Pillar Water tap', 1500)">Add to Cart</button>
+          </div>
+  
+        <!-- Product Item 10 -->
+        <div class="product-item">
+          <img src="images/Sensor taps with On Off touchpad.Jpg " alt="Sensor taps with On Off touchpad">
+          <h3>Sensor taps with On Off touchpad</h3>
+          <p class="price">Ksh 8,000.00</p>
+          <button onclick="addToCart('Sensor taps with On Off touchpad', 8000)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 11 -->
+        <div class="product-item">
+          <img src="images/Bathroom wall decor and accessory.jpg" alt="Bathroom wall decor and accessory">
+          <h3>Bathroom wall decor and accessory</h3>
+          <p class="price">Ksh 560.00 each</p>
+          <button onclick="addToCart('PPR elbows', 560)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 12 -->
+        <div class="product-item">
+          <img src="images/soap dish.png" alt="soap dish">
+          <h3>soap dish</h3>
+          <p class="price">Ksh 500.00</p>
+          <button onclick="addToCart('soap dish', 500)">Add to Cart</button>
+        </div>
+  
+        <!-- Product Item 13 -->
+        <div class="product-item">
+          <img src="images/standing Sink.png" alt="standing Sink">
+          <h3>standing Sink</h3>
+          <p class="price">Ksh 5,800.00</p>
+          <button onclick="addToCart('standing Sink', 5800)">Add to Cart</button>
+        </div>
+        <!-- Product Item 14 -->
+        <div class="product-item">
+          <img src="images/Square sink.jpg" alt="Square sink">
+          <h3>Square sink</h3>
+          <p class="price">Ksh 6,500.00</p>
+          <button onclick="addToCart('Square sink', 6500)">Add to Cart</button>
+          </div>
+        <!-- Product Item 15 -->
+        <div class="product-item">
+          <img src="images/grey sink.png" alt="grey sink">
+          <h3>grey sink we also do installation at a fee</h3>
+          <p class="price">Ksh 4,500.00</p>
+          <button onclick="addToCart('grey sink', 4500)">Add to Cart</button>
+          </div>
+        <!-- Product Item 16 -->
+         <div class="product-item">
+        <img src="images/square toilet.jpg" alt="square toilet">
+        <h3>square toilet</h3>
+        <p class="price">Ksh 29,000.00</p>
+        <button onclick="addToCart('square toilet', 29000)">Add to Cart</button>
+        </div>
+        <!-- Product Item 17 -->
+        <div class="product-item">
+          <img src="images/oval toilet.jpg" alt="oval toilet">
+          <h3>oval toilet</h3>
+          <p class="price">Ksh 29,000.00</p>
+          <button onclick="addToCart('oval toilet', 29000)">Add to Cart</button>
+         </div>
+        <!-- Product Item 18 -->
+        <div class="product-item">
+          <img src="images/PinkOval Frencia toilet.jpg" alt="PinkOval Frencia toilet">
+          <h3>PinkOval Frencia toilet</h3>
+          <p class="price">Ksh 29,000.00</p>
+          <button onclick="addToCart('PinkOval Frencia toilet', 29000)">Add to Cart</button>
+          </div>
+        <!-- Product Item 19 -->
+         <div class="product-item">
+          <img src="images/toilet designs.jpg" alt="toilet designs">
+          <h3>toilet designs</h3>
+          <p class="price">Ksh 2,500.00</p>
+          <button onclick="addToCart('toilet designs', 2500)">Add to Cart</button>
+        </div>
+        <!-- Product Item 20 -->  
+         <div class="product-item">
+          <img src="images/Black round shower head.jpg" alt="Black round shower head">
+          <h3>Black round shower head</h3>
+          <p class="price">Ksh 7,500.00</p>
+          <button onclick="addToCart('Black round shower head', 7500)">Add to Cart</button>
+          </div>
+        <!-- Product Item 21 -->
+        <div class="product-item">
+          <img src="images/Black n-type tap.jpg" alt="Black n-type WaterTap">
+          <h3>Black n-type WaterTap</h3>
+          <p class="price">Ksh 6,500.00</p>
+          <button onclick="addToCart('Black n-type WaterTap', 6500)">Add to Cart</button>
+          </div>
+        <!-- Product Item 22 -->
+        <div class="product-item">
+          <img src="images/Black elegant watertap.jpg" alt="Black elegant watertap">
+          <h3>Black elegant watertap</h3>
+          <p class="price">Ksh 2,500.00</p>
+          <button onclick="addToCart('Black elegant watertap', 2500)">Add to Cart</button>
+          </div>
+        <!-- Product Item 23 -->
+        <div class="product-item">
+          <img src="images/Double sink with tap.jpg" alt="Double sink with tap">
+          <h3>Double sink with tap</h3>
+          <p class="price">Ksh 11,000.00</p>
+          <button onclick="addToCart('Double sink with tap', 11000)">Add to Cart</button>
+          </div>
+        <!-- Product Item 24 -->
+        <div class="product-item">
+          <img src="images/PPR MALE ADAPTOR 50MM (half inche).jpg" alt="PPR MALE ADAPTOR 50MM (half inch)">
+          <h3>PPR MALE ADAPTOR 50MM (half inch)</h3>
+          <p class="price">Ksh 280.00</p>
+          <button onclick="addToCart('PPR MALE ADAPTOR 50MM (half inch)', 280)">Add to Cart</button>
+          </div>  
+       
+        <!-- Product Item 27 -->
+         
+
+  
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="lighting.html">Lighting</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us: +254 117 484 887</p>
+      <p>Email: Alphaltd21@gmail.com
+    <div class="footer-hours">
+      <p>Open Days: Mon - Sat</p>
+
+      <p>Hours: 8:00 AM - 6:00 PM</p>
+    </div>
+  </div>
+  <div class="social-media">
+    <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+    <a href="https://www.facebook.com/AlphaElectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-instagram "></i> </a>
+    <a href="https://www.youtube.com/shorts/" target="_blank" aria-label="YouTube Shorts"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+    
+  </div>
+    <p class="footer-text">Alpha Electricals & Plumbing Ltd © 2025</p>
+  </footer>
+
+ <!-- Scroll Progress Button -->
+<div id="scrollToTop" class="scroll-progress">
+  <svg class="progress-ring" width="60" height="60">
+    <circle class="progress-ring__circle" stroke="#00c389" stroke-width="4" fill="transparent" r="26" cx="30" cy="30" />
+  </svg>
+  <span class="scroll-arrow">↑</span>
+</div>
+<!-- WhatsApp Chat Button -->
+<div id="whatsapp-chat-button">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat with us" />
+</div>
+
+<!-- WhatsApp Chat Popup -->
+<div id="whatsapp-popup">
+  <div class="chat-header">
+    <span>Chat with us on WhatsApp</span>
+    <button id="close-whatsapp">×</button>
+  </div>
+  <div class="chat-body">
+    <input id="waMessage" type="text" placeholder="Type your message..." />
+    <button id="sendToWhatsapp">Send</button>
+  </div>
+</div>
+<script>
+  const scrollBtn = document.getElementById('scrollToTop');
+  const progressCircle = document.querySelector('.progress-ring__circle');
+  const radius = progressCircle.r.baseVal.value;
+  const circumference = 2 * Math.PI * radius;
+
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  progressCircle.style.strokeDashoffset = `${circumference}`;
+
+  function setProgress(percent) {
+    const offset = circumference - percent / 100 * circumference;
+    progressCircle.style.strokeDashoffset = offset;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    setProgress(scrollPercent);
+
+    scrollBtn.style.opacity = scrollTop > 200 ? '1' : '0';
+  }
+
+  window.addEventListener('scroll', updateProgress);
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial state
+  updateProgress();
+  // WhatsApp Chat
+  const waBtn = document.getElementById('whatsapp-chat-button');
+  const waPopup = document.getElementById('whatsapp-popup');
+  const waClose = document.getElementById('close-whatsapp');
+  const waSend = document.getElementById('sendToWhatsapp');
+
+  waBtn.addEventListener('click', () => {
+    waPopup.style.display = 'block';
+  });
+
+  waClose.addEventListener('click', () => {
+    waPopup.style.display = 'none';
+  });
+
+  waSend.addEventListener('click', () => {
+    const msg = document.getElementById('waMessage').value.trim();
+    if (msg) {
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/254117484887?text=${encodedMsg}`, '_blank');
+    }
+  });
+</script>
+
+</body>
+</html>

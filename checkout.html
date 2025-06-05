@@ -1,0 +1,237 @@
+<!-- checkout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Alpha Electricals</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    #cartSummary {
+      margin-bottom: 30px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 8px 0;
+    }
+
+    .checkout-form {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .checkout-form label {
+      display: block;
+      margin: 12px 0 4px;
+    }
+
+    .checkout-form input,
+    .checkout-form select,
+    .checkout-form textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .checkout-form button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .checkout-form button:hover {
+      background: #218838;
+    }
+
+    #paymentDetails {
+      display: none;
+    }
+    input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Checkout</h2>
+
+  <!-- Cart Summary -->
+  <div id="cartSummary"></div>
+    <input type="text" id="mpesaPhone" placeholder="Enter M-PESA phone number">
+ 
+<button onclick="payWithMpesa()">Pay with M-PESA</button>
+
+
+  <!-- Checkout Form -->
+  <form id="checkoutForm" class="checkout-form">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" required />
+
+    <label for="address">Delivery Address</label>
+    <textarea id="address" rows="3" required></textarea>
+
+    <label for="payment">Payment Method</label>
+    <select id="payment" required>
+      <option value="">Select payment method</option>
+      <option value="mobile">Mobile Payment (M-Pesa)</option>
+      <option value="bank">Bank Payment</option>
+    </select>
+
+    <div id="paymentDetails">
+      <!-- Populated dynamically -->
+    </div>
+
+    <button type="submit">Place Order</button>
+  </form>
+
+  <script>
+    // 1. Load Cart from localStorage
+    const cartSummary = document.getElementById("cartSummary");
+    const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let total = 0;
+
+    cartSummary.innerHTML = "<h3>Your Order:</h3>" + cart.map(item => {
+      total += item.price;
+      return `
+        <div class="cart-item">
+          <span>${item.name}</span>
+          <span>Ksh ${item.price}</span>
+        </div>
+      `;
+    }).join("") + `<p><strong>Total: Ksh ${total}</strong></p>`;
+
+    // 2. Payment Method Change Listener
+    const paymentSelect = document.getElementById("payment");
+    const paymentDetails = document.getElementById("paymentDetails");
+
+    paymentSelect.addEventListener("change", () => {
+      if (paymentSelect.value === "mobile") {
+        paymentDetails.innerHTML = `
+          <p>Send payment to M-Pesa Till <strong>0117484887</strong>.</p>
+        `;
+      } else if (paymentSelect.value === "bank") {
+        paymentDetails.innerHTML = `
+          <p>Bank Account Name: <strong>Alpha Electricals</strong><br>
+             Account Number: <strong>1234567890</strong><br>
+             Bank: <strong>Equity Bank</strong></p>
+        `;
+      } else {
+        paymentDetails.innerHTML = "";
+      }
+
+      paymentDetails.style.display = paymentSelect.value ? "block" : "none";
+    });
+
+    // 3. Form Validation & Submission
+    const checkoutForm = document.getElementById("checkoutForm");
+
+    checkoutForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const paymentMethod = paymentSelect.value;
+
+      if (!name || !phone || !address || !paymentMethod) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Placeholder for sending to WhatsApp/email
+      alert(`Thank you ${name}, your order of Ksh ${total} has been placed via ${paymentMethod}!`);
+
+      // Optionally clear cart
+      localStorage.removeItem("cartItems");
+
+      if (window.parent !== window) {
+        window.parent.postMessage("closeCheckout", "*");
+      }
+    });
+  </script>
+
+<script>
+function payWithMpesa() {
+  const phone = document.getElementById('mpesaPhone').value;
+  
+  if (!phone) {
+    alert('Please enter your M-PESA phone number');
+    return;
+  }
+
+  const payButton = document.querySelector('button[onclick="payWithMpesa()"]');
+  payButton.disabled = true;
+  payButton.innerText = "Processing...";
+
+  fetch('http://localhost:5000/api/payment/stk', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone, amount: total })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.ResponseCode === "0") {
+      alert('STK Push sent successfully! Check your phone and enter your M-PESA PIN.');
+    } else {
+      alert(`Failed: ${data.errorMessage || 'Unknown error'}`);
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Payment failed. Please try again.');
+  })
+  .finally(() => {
+    // Re-enable the button after request
+    payButton.disabled = false;
+    payButton.innerText = "Pay with M-PESA";
+  });
+}
+</script>
+ 
+
+
+
+</body>
+</html>

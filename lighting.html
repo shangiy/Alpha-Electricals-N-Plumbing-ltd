@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Electricals & Plumbing Ltd</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <!-- Logo Left -->
+    <div class="logo"><a href="index.html"><img src="images/logo Alpha.png" alt="Hardware Store Logo" id="logo-img"></a> </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Products</a>
+
+        <div class="dropdown-content">
+          <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+          <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+          <a href="lighting.html"><img src="images/decor lighting design.png" alt=""> Lighting & Electrical</a>
+          <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+          <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="icon" id="searchIcon">&#128269;</span>
+      <div class="search-box-container" id="searchBoxContainer">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <span class="search-submit-icon" id="submitSearch">&#10148;</span>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-search-wrapper">
+        <span class="icon" id="searchIconMobile">&#128269;</span>
+        <div class="search-box-container" id="mobileSearchBoxContainer">
+          <input type="text" id="mobileSearchInput" placeholder="Search...">
+          <span class="search-submit-icon" id="mobileSubmitSearch">&#10148;</span>
+        </div>
+      </div>
+
+      <span class="icon cart-trigger">&#128722;<span class="badge" id="cart-count">0</span></span>
+      <span class="menu-toggle" id="menuToggle">&#9776;</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">home</a>
+      <a href="tanks.html"><img src="images/kentank 2000l.png" alt=""> Tanks Collection</a>
+      <a href="plumbing.html"><img src="images/ppr pipes.png" alt=""> Plumbing Equipment</a>
+      <a href="lighting.html"><img src="images/artistic lights.png" alt=""> Lighting & Electrical</a>
+      <a href="decor.html"><img src="images/square lights.png"alt=""> Home & Décor</a>
+      <a href="roofing.html"><img src="images/roof 2.png"alt=""> Roofing & Construction</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="team.html">Team</a>
+    </div>
+
+    <!-- Cart Panel -->
+   <div id="cart-panel" class="cart-panel">
+     <div class="cart-header">
+       <h2>Your Cart</h2>
+        <span id="close-cart" class="close-cart-btn">&times;</span>
+     </div>
+     <div id="cart-items" class="cart-items"></div>
+     <div class="cart-footer">
+      <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
+     </div>
+    </div>
+  </header>
+
+
+<!-- Featured Products Section for Lighting & Electrical -->
+<section class="featured-products">
+  <div class="container">
+    <h2>Lighting & Electrical Collection</h2>
+    <div class="products-grid">
+
+      <!-- Product Item 1 -->
+       <div class="product-item">
+        <img src="images/Golden stripe Chandelier.jpg" alt="Golden stripe Chandelier">
+        <h3>Golden stripe Chandelier</h3>
+        <p class="price">Ksh 8,000.00</p>
+        <button onclick="addToCart('Golden stripe Chandelier', 8000)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 2 -->
+      <div class="product-item">
+        <img src="images/rugged chandelier.png" alt="Rugged Chandelier">
+        <h3>Rugged Chandelier</h3>
+        <p class="price">Ksh 5,000.00</p>
+        <button onclick="addToCart('Rugged Chandelier', 5000)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 3 -->
+      <div class="product-item">
+        <img src="images/square lights.png" alt="Square Lights">
+        <h3>Decorative Square Lights</h3>
+        <p class="price">Ksh 2,800.00</p>
+        <button onclick="addToCart('Decorative Square Lights', 2800)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 4 -->
+      <div class="product-item">
+        <img src="images/birds lights.png" alt="birds lights ">
+        <h3>birds lights</h3>
+        <p class="price">Ksh 1,900.00</p>
+        <button onclick="addToCart('birds lights', 1900)">Add to Cart</button>
+      </div>
+      <!-- Product Item 5 -->
+      <div class="product-item">
+        <img src="images/aesthetic Light.png" alt="aesthetic Lights">
+        <h3>aesthetic lights</h3>
+        <p class="price">Ksh 1,200.00</p>
+        <button onclick="addToCart('aesthetic lights', 1200)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 6 -->
+      <div class="product-item">
+        <img src="images/crystall chanderlier.png" alt="crystall chanderlier">
+        <h3>crystall chanderlier</h3>
+        <p class="price">Ksh 1,500.00</p>
+        <button onclick="addToCart('crystall chanderlier', 1500)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 7 -->
+      <div class="product-item">
+        <img src="images/golden chandelier.png" alt="Golden Chandelier">
+        <h3>Golden Chandelier</h3>
+        <p class="price">Ksh 3,500.00</p>
+        <button onclick="addToCart('Golden Chandelier', 3500)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 8 -->
+      <div class="product-item">
+        <img src="images/golden layers.jpg" alt="nature lighting">
+        <h3>nature lighting</h3>
+        <p class="price">Ksh 2,000.00</p>
+        <button onclick="addToCart('nature lighting', 2000)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 9 -->
+      <div class="product-item">
+        <img src="images/hexagonal decor light.jpg" alt="3 in 1 lights">
+        <h3>3 in 1 lights</h3>
+        <p class="price">Ksh 1,000.00</p>
+        <button onclick="addToCart('3 in 1 lights', 1000)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 10 -->
+      <div class="product-item">
+        <img src="images/curvy blue light.jpg"alt="Modern Ceiling Light">
+        <h3>Modern Ceiling Light</h3>
+        <p class="price">Ksh 3,500.00</p>
+        <button onclick="addToCart('Modern Ceiling Light', 3500)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 11 -->
+      <div class="product-item">
+        <img src="images/Wall lights.jpg" alt="Wall lights">
+        <h3>Wall lights</h3>
+        <p class="price">Ksh 2,000.00</p>
+        <button onclick="addToCart('Wall lights', 2000)">Add to Cart</button>
+      </div>
+
+      <!-- Product Item 12 -->
+      <div class="product-item">
+        <img src="images/5 Lamp Chandelier General.png" alt="5 Lamp Chandelier General">
+        <h3>5 Lamp Chandelier General</h3>
+        <p class="price">Ksh 5330.00</p>
+        <button onclick="addToCart('5 Lamp Chandelier General', 5330)">Add to Cart</button>
+      </div>
+      <!-- Product Item 13 -->
+        <div class="product-item">
+        <img src="images/masai cable Flex cable.png" alt="masai cable Flex cable 4.0mm">
+        <h3>masai cable Flex cable 4.0mm</h3>
+        <p class="price">Ksh 375.00</p>
+        <button onclick="addToCart('masai cable Flex cable 4.0mm', 375)">Add to Cart</button>
+      </div>
+      <!-- Product Item 14 -->
+       <div class="product-item">
+        <img src="images/IFLUX WATER HEATER SWITCH 45 Amp (gold).png" alt="IFLUX waters heater switch 45 Amp (gold)">
+        <h3>IFLUX waters heater switch 45Amp (gold)</h3>
+        <p class="price">Ksh 555.00</p>
+        <button onclick="addToCart('IFLUX waters heater switch 45Amp (gold)', 555)">Add to Cart</button>
+      </div>
+      <!-- Product Item 15 -->
+      <div class="product-item">
+        <img src="images/2FT vellmax Flat Tube 25w.png" alt="2FT vellmax Flat Tube 25w(white)">
+        <h3>2FT vellmax Flat Tube 25w</h3>
+        <p class="price">Ksh 490.00</p>
+        <button onclick="addToCart('2FT vellmax Flat Tube 25w(white)', 490)">Add to Cart</button>
+        </div>
+      <!-- Product Item 16 -->
+      <div class="product-item">
+        <img src="images/TLAC ELECTRIC BOOSTER PUMP DCM190.jpg" alt="TLAC ELECTRIC BOOSTER PUMP DCM190">
+        <h3>TLAC ELECTRIC BOOSTER PUMP DCM190</h3>
+        <p class="price">Ksh 19,800.00</p>
+        <button onclick="addToCart('TLAC ELECTRIC BOOSTER PUMP DCM190', 19800)">Add to Cart</button>
+        </div>
+      <!-- Product Item 17 -->
+        <div class="product-item">
+        <img src="images/3 GANG IFLUX  FLOUR SERIES SWH3G2-14.png" alt="3 GANG IFLUX  FLOUR SERIES SWH3G2-14">
+        <h3>3 GANG IFLUX  FLOUR SERIES SWH3G2-14</h3>
+        <p class="price">Ksh 360.00</p>
+        <button onclick="addToCart('3 GANG IFLUX  FLOUR SERIES SWH3G2-14', 360)">Add to Cart</button>
+        </div>
+      <!-- Product Item 18 -->
+      <div class="product-item">
+        <img src="images/IFLUX 2 GANG SWITCH.png" alt="IFLUX 2 GANG SWITCH">
+        <h3>IFLUX 2 GANG SWITCH</h3>
+        <p class="price">Ksh 250.00</p>
+        <button onclick="addToCart('IFLUX 2 GANG SWITCH', 250)">Add to Cart</button>
+        </div>
+      <!-- Product Item 19 -->
+        <div class="product-item">
+        <img src="images/45A IFLUX WATER HEATER SWITCH.png" alt="45A IFLUX WATER HEATER SWITCH ">
+        <h3>45A IFLUX WATER HEATER SWITCH</h3>
+        <p class="price">Ksh 415.00 @ each</p>
+        <button onclick="addToCart('45A IFLUX WATER HEATER SWITCH', 415)">Add to Cart</button>
+      </div>
+      <!-- Product Item 20 -->
+      <div class="product-item">
+        <img src="images/IFLUX 1 GANG SWITCH.png" alt="IFLUX 1 GANG SWITCH">
+        <h3>IFLUX 1 GANG SWITCH</h3>
+        <p class="price">Ksh 150.00</p>
+        <button onclick="addToCart('IFLUX 1 GANG SWITCH', 150)">Add to Cart</button>
+        </div>
+      <!-- Product Item 21 -->
+        <div class="product-item">
+          <img src="images/Tronic 1gang switch.jpg" alt="Tronic 1 gang switch">
+          <h3>Tronic 1 gang switch</h3>
+          <p class="price">Ksh 250.00</p>
+          <button onclick="addToCart('Tronic 1gang switch', 250)">Add to Cart</button>
+          </div>
+        <!-- Product Item 22 -->
+        <div class="product-item">
+          <img src="images/Tronic 2 gang switch.jpg" alt="Tronic 2 gang switch">
+          <h3>Tronic 2 gang switch</h3>
+          <p class="price">Ksh 360.00</p>
+          <button onclick="addToCart('Tronic 2 gang switch', 360)">Add to Cart</button>
+          </div>
+        <!-- Product Item 23 -->
+        <div class="product-item">
+          <img src="images/Tronic 3Gang switch.jpg" alt="Tronic 3 Gang switch">
+          <h3>Tronic 3 Gang switch.jpg</h3>
+          <p class="price">Ksh 450.00</p>
+          <button onclick="addToCart('Tronic 3 Gang switch.jpg', 450)">Add to Cart</button>
+          </div>
+        <!-- Product Item 24 -->
+        <div class="product-item">
+          <img src="images/Tronic 4 gang switch.jpg" alt="Tronic 4 gang switch">
+          <h3>Tronic 4 gang switch</h3>
+          <p class="price">Ksh 150.00</p>
+          <button onclick="addToCart('Tronic 4 gang switch', 150)">Add to Cart</button>
+          </div>
+       
+     <!-- Product Item 25 -->
+        <div class="product-item">
+          <img src="images/4FT EARTHROD.jpg" alt="4FT EARTHROD">
+          <h3> 4FT EARTHROD</h3>
+          <p class="price">Ksh 280.00</p>
+          <button onclick="addToCart('4FT EARTHROD', 280)">Add to Cart</button>
+          </div>
+        <!-- Product Item 26 -->
+        <div class="product-item">
+          <img src="images/3 GANG IFLUX  FLOUR SERIES SWH3G2-14.jpg" alt="Black IFLUX 3 GANG  FLOUR SERIES SWH3G2-14">
+          <h3>Black IFLUX 3 GANG  FLOUR SERIES SWH3G2-14</h3>
+          <p class="price">Ksh 360.00</p>
+          <button onclick="addToCart('Black IFLUX 3 GANG  FLOUR SERIES SWH3G2-14', 360)">Add to Cart</button>
+          </div>
+        <!-- Product Item 27 -->
+        <div class="product-item">
+          <img src="images/300w New Streetlight 58300 .jpg " alt="300w New Streetlight 58300">
+          <h3>300w New Streetlight 58300</h3>
+          <p class="price">Ksh 8,000.00</p>
+          <button onclick="addToCart('300w New Streetlight 58300', 8000)">Add to Cart</button>
+          </div>
+        <!-- Product Item 28 -->
+        <div class="product-item">
+          <img src="images/300W Optonica Gold Street.jpg " alt="300W Optonica Gold Street">
+          <h3>300W Optonica Gold Street</h3>
+          <p class="price">Ksh 8,970.00</p>
+          <button onclick="addToCart('300W Optonica Gold Street', 8970)">Add to Cart</button>
+          </div>
+        <!-- Product Item 29 -->
+        <div class="product-item">
+          <img src="images/300W Optonica Silver Street.jpg " alt="300W Optonica Silver Street">
+          <h3>300W Optonica Silver Street</h3>
+          <p class="price">Ksh
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="lighting.html">Lighting</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="team.html">Team</a>
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us: +254 117 484 887</p>
+      <p>Email: Alphaltd21@gmail.com
+    <div class="footer-hours">
+      <p>Open Days: Mon - Sat</p>
+
+      <p>Hours: 8:00 AM - 6:00 PM</p>
+     </div>
+    </div>
+   <div class="social-media">
+    <a href="https://www.facebook.com/Alphaelectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-facebook"></i> </a>
+    <a href="https://www.facebook.com/AlphaElectricalsandplumbing" target="_blank" aria-label="Facebook"> <i class="fab fa-instagram "></i> </a>
+    <a href="https://www.youtube.com/shorts/" target="_blank" aria-label="YouTube Shorts"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@AlphaElectricalsandplumb" target="_blank" aria-label="TikTok"> <i class="fab fa-tiktok"></i> </a>
+    
+   </div>
+    <p class="footer-text">Alpha Electricals & Plumbing Ltd © 2025</p>
+  </footer>
+
+  <script defer src="script.js"></script>
+ 
+  <!-- Scroll Progress Button -->
+<div id="scrollToTop" class="scroll-progress">
+  <svg class="progress-ring" width="60" height="60">
+    <circle class="progress-ring__circle" stroke="#00c389" stroke-width="4" fill="transparent" r="26" cx="30" cy="30" />
+  </svg>
+  <span class="scroll-arrow">↑</span>
+</div>
+<!-- WhatsApp Chat Button -->
+<div id="whatsapp-chat-button">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat with us" />
+</div>
+
+<!-- WhatsApp Chat Popup -->
+<div id="whatsapp-popup">
+  <div class="chat-header">
+    <span>Chat with us on WhatsApp</span>
+    <button id="close-whatsapp">×</button>
+  </div>
+  <div class="chat-body">
+    <input id="waMessage" type="text" placeholder="Type your message..." />
+    <button id="sendToWhatsapp">Send</button>
+  </div>
+</div>
+<script>
+  const scrollBtn = document.getElementById('scrollToTop');
+  const progressCircle = document.querySelector('.progress-ring__circle');
+  const radius = progressCircle.r.baseVal.value;
+  const circumference = 2 * Math.PI * radius;
+
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  progressCircle.style.strokeDashoffset = `${circumference}`;
+
+  function setProgress(percent) {
+    const offset = circumference - percent / 100 * circumference;
+    progressCircle.style.strokeDashoffset = offset;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    setProgress(scrollPercent);
+
+    scrollBtn.style.opacity = scrollTop > 200 ? '1' : '0';
+  }
+
+  window.addEventListener('scroll', updateProgress);
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial state
+  updateProgress();
+  // WhatsApp Chat
+  const waBtn = document.getElementById('whatsapp-chat-button');
+  const waPopup = document.getElementById('whatsapp-popup');
+  const waClose = document.getElementById('close-whatsapp');
+  const waSend = document.getElementById('sendToWhatsapp');
+
+  waBtn.addEventListener('click', () => {
+    waPopup.style.display = 'block';
+  });
+
+  waClose.addEventListener('click', () => {
+    waPopup.style.display = 'none';
+  });
+
+  waSend.addEventListener('click', () => {
+    const msg = document.getElementById('waMessage').value.trim();
+    if (msg) {
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/254117484887?text=${encodedMsg}`, '_blank');
+    }
+  });
+</script>
+</body>
+</html>
