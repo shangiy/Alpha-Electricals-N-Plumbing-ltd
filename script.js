@@ -320,6 +320,14 @@ waBtn.addEventListener('click', () => {
 document.addEventListener("DOMContentLoaded", function () {
   const circles = document.querySelectorAll(".circle-container");
 
+document.getElementById("proceedToCheckout").addEventListener("click", () => {
+  const totalText = document.getElementById("cart-total").textContent.trim(); // e.g. "62,650.00"
+  const amount = totalText.replace(/,/g, ""); // remove commas: "62650.00"
+  localStorage.setItem("checkoutAmount", amount);
+  window.location.href = "checkout.html";
+});
+
+
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
