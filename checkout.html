@@ -55,59 +55,54 @@
     <button onclick="payWithPaystack()">Pay with M-PESA</button>
   </div>
 
-  <script>
-    // Auto-fill total from localStorage
-    const savedAmount = localStorage.getItem('checkoutAmount') || '0';
-    document.getElementById('totalAmount').textContent = savedAmount;
+<script>
+  // Format for display
+const raw = localStorage.getItem("checkoutAmount") || "0";
+const formatted = Number(raw).toLocaleString('en-KE', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+});
+document.getElementById("totalAmount").textContent = formatted; // ✅ shows 62,650.00
 
-   function payWithPaystack() {
-  const phone = document.getElementById("phone").value.trim();
-  const amountKsh = parseInt(document.getElementById("totalAmount").textContent.replace(/,/g, ""));
+
+  function payWithPaystack() {
+    const phone = document.getElementById("phone").value.trim();
+    const amountKsh = parseFloat(localStorage.getItem("checkoutAmount") || "0");
 
 
-  if (!phone || phone.length < 10 || !/^\d+$/.test(phone)) {
-    alert("Please enter a valid phone number.");
-    return;
-  }
-
-  const handler = PaystackPop.setup({
-    key: 'pk_test_163014ec364903a72c78b8e3fea9db7e080333ce',
-    email: `${phone}@alpha-electricals.co.ke`,
-    amount: amountKsh * 100,
-    currency: 'KES',
-    ref: 'ALPHA-' + Math.floor(Math.random() * 1000000000),
-
-    // ✅ Optional: allow multiple channels
-    channels: ['card', 'mobile_money'],
-
-    metadata: {
-      custom_fields: [
-        {
-          display_name: "Phone Number",
-          variable_name: "phone_number",
-          value: phone
-        }
-      ]
-    },
-    callback: function(response) {
-      alert('Payment initiated! Reference: ' + response.reference);
-    },
-    onClose: function() {
-      alert('Transaction was canceled.');
+    if (!phone || phone.length < 10 || !/^\d+$/.test(phone)) {
+      alert("Please enter a valid phone number.");
+      return;
     }
-  });
 
-  handler.openIframe();
-}
+    const handler = PaystackPop.setup({
+      key: 'pk_test_163014ec364903a72c78b8e3fea9db7e080333ce',
+      email: `${phone}@alpha-electricals.co.ke`,
+      amount: Math.round(amountKsh * 100), // ONLY multiply once here
+      currency: 'KES',
+      channels: ['card', 'mobile_money'],
+      ref: 'ALPHA-' + Math.floor(Math.random() * 1000000000),
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Phone Number",
+            variable_name: "phone_number",
+            value: phone
+          }
+        ]
+      },
+      callback: function(response) {
+        alert('Payment initiated! Ref: ' + response.reference);
+      },
+      onClose: function() {
+        alert('Transaction was canceled.');
+      }
+    });
 
-  </script>
+    handler.openIframe();
+  }
+</script>
 
-  <script>
-    const total = localStorage.getItem("checkoutAmount") || "0";
-    const formatted = parseInt(total).toLocaleString('en-KE');
-    document.getElementById("totalAmount").textContent = formatted;
-l;
-  </script>
 
 </body>
 </html>
