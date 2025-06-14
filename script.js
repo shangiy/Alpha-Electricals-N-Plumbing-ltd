@@ -120,23 +120,7 @@ function updateCartUI() {
     });
   });
   cartTotal.textContent = total.toFixed(2);
-  // Add or update checkout button
-let checkoutBtn = document.getElementById("checkoutBtn");
-if (!checkoutBtn) {
-  checkoutBtn = document.createElement("button");
-  checkoutBtn.id = "checkoutBtn";
-  checkoutBtn.textContent = "Proceed to Checkout";
-  checkoutBtn.classList.add("checkout-btn"); // Add your CSS class if needed
-  cartPanel.appendChild(checkoutBtn);
-}
-checkoutBtn.onclick = () => {
-  window.location.href = "checkout.html";
-};
 
-// Open checkout overlay
-document.getElementById("openCheckoutBtn").addEventListener("click", () => {
-  document.getElementById("checkoutOverlay").style.display = "flex";
-});
 
 // Close overlay
 document.getElementById("closeCheckout").addEventListener("click", () => {
@@ -310,10 +294,21 @@ document.addEventListener("DOMContentLoaded", () => {
   updateProgress(); // Initial load
 });
 
+document.getElementById("openCheckoutBtn").addEventListener("click", () => {
+  document.getElementById("checkoutOverlay").style.display = "flex";
+});
+const openCheckoutBtn = document.getElementById("openCheckoutBtn");
+if (openCheckoutBtn) {
+  openCheckoutBtn.addEventListener("click", () => {
+    document.getElementById("checkoutOverlay").style.display = "flex";
+  });
+}
+
 // Save message on typing
 document.getElementById('waMessage').addEventListener('input', () => {
   localStorage.setItem('waChatMessage', document.getElementById('waMessage').value);
 });
+
 
 // Load saved message
 waBtn.addEventListener('click', () => {
@@ -364,25 +359,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // On scroll
   window.addEventListener("scroll", animateCircles);
 });
-function payWithMpesa() {
-  const phone = document.getElementById("phone").value;
-  const amount = document.getElementById("amount").value;
-
-  fetch("http://localhost:3000/stk-push", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ phone, amount })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log("M-PESA Response:", data);
-    alert("Payment request sent to your phone!");
-  })
-  .catch(err => {
-    console.error("Error:", err);
-    alert("Payment failed");
-  });
-}
-
