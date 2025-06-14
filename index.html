@@ -141,7 +141,15 @@ position: relative;
      <div class="cart-footer">
       <strong>Total Amount: Ksh <span id="cart-total">0</span></strong>
      </div>
+     <div style="background-color: rgb(8, 17, 139); width: 100%; padding: 10px;">
+      <button id="proceedToCheckout" style="width: 100%; padding: 12px; font-size: 16px; color: white; background-color: #049b31; border: none; border-radius: 5px;">
+      Proceed to Checkout
+      </button>
+     </div>
 
+     <div class="cart-empty" id="cart-empty" style="display: none;">
+       <p>Your cart is empty.</p>
+     </div>
     </div>
   </header>
 
@@ -675,13 +683,15 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-  window.addEventListener("message", function (event) {
-    if (event.data === "closeCheckout") {
-      document.getElementById("checkoutOverlay").style.display = "none";
-      location.reload(); // Reload to update cart
-    }
+  document.getElementById("proceedToCheckout").addEventListener("click", () => {
+    const totalText = document.getElementById("cart-total").textContent.trim(); // e.g. "62,650.00"
+    const cleanAmount = totalText.replace(/,/g, ""); // → "62650.00"
+    localStorage.setItem("checkoutAmount", cleanAmount);
+    window.location.href = "checkout.html"; // OR show iframe if using modal
   });
 </script>
+
+
 
 
 <script src="script.js" defer></script>
